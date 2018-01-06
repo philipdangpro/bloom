@@ -9,13 +9,42 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/", name="default.index")
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        return $this->render('default/index.html.twig', []);
+    }
+
+    /**
+     * @Route("/login", name="default.login")
+     */
+    public function loginAction(Request $request)
+    {
+        return $this->render('default/login.html.twig', []);
+    }
+
+    /**
+     * @Route("/contact", name="default.contact")
+     */
+    public function contactAction(Request $request)
+    {
+        return $this->render('default/contact.html.twig', []);
+    }
+
+    /**
+     * @Route("/informations-pratiques", name="default.infos")
+     */
+    public function infosAction(Request $request)
+    {
+        return $this->render('default/informations-pratiques.html.twig', []);
+    }
+
+    /**
+     * @Route("/mentions-legales", name="default.mentions")
+     */
+    public function mentionsAction(Request $request)
+    {
+        return $this->render('default/mentions-legales.html.twig', []);
     }
 }
