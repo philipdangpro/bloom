@@ -1,1 +1,1 @@
-a training project
+a training project : a standard nowadays website
