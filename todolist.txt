@@ -1,0 +1,103 @@
+ENTITIES
+
+PRIMARY ENTITIES
+	Customer
+		id
+		firstname
+		lastname
+		birthdate
+		gender
+		is_active
+		blocked_by
+		created_at
+		last_modified_at
+		last_connected_at
+		friends
+		followings
+		address
+		shipping_address
+		billing_address
+		is_admin
+
+	Category
+		id
+		name
+		parent
+		level
+
+	Product
+		id
+		name
+		price
+		brand
+		description
+		seller
+		category
+		tags
+		nb_buys
+		available_qty
+
+	Tags
+		id
+		name
+
+	Country
+		id
+		name
+
+	Order
+		id
+		products
+		status
+		last_status_date
+
+
+
+	Ratings
+		id
+		type (related to EntityX)
+
+	Invoice
+		id
+		reference_id
+
+
+	Address
+		type
+		street
+		complement street
+		zipcode
+		city
+		country
+
+	Company
+
+SECONDARY ENTITIES
+	SecretQuestion
+	EmailTemplate
+	Gender
+
+
+
+
+
+
+
+
+VIEWS, CONTROLLERS AND TEMPLATES
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
