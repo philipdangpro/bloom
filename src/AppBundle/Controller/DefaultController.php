@@ -2,9 +2,11 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Category;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ManagerRegistry;
 
 class DefaultController extends ImprovedController
 {
@@ -89,5 +91,25 @@ class DefaultController extends ImprovedController
                 'title' => 'à propos',
                 'style' => $this->getCustomCss('front')
             ]);
+    }
+
+    /**
+     * @Route("/test", name="default.test")
+     */
+    public function testAction(ManagerRegistry $doctrine) //injecter
+    {
+        $category = new Category;
+        $em = $doctrine->getManager();
+        $category->translate('fr')->setName('Chaussures');
+        $category->translate('en')->setName('Shoes');
+
+        $category->mergeNewTranslations();
+
+        $em->persist($category);
+
+
+        $em->flush();
+
+//        return $this->render('default/index.html.twig');
     }
 }

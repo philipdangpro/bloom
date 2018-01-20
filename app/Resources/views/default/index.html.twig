@@ -15,7 +15,7 @@
             </li>
         </ul>
     </nav>
-    <h3 class="text-muted">{{ 'homepage.title' | trans }}</h3>
+    <h3 class="text-muted">{{ 'homepage.title' | trans | capitalize}}</h3>
 {% endblock %}
 
 {% block content_center %}
@@ -48,6 +48,10 @@
             <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
         </div>
     </div>
+    {{ app }}
+
+    {#<div><a href="{{ url('homepage.test', {'slug' : prod.slug}) }}"></a></div>#}
+
 {% endblock %}
 
 {% block footer %}
