@@ -107,7 +107,6 @@ class DefaultController extends ImprovedController
 
         $em->persist($category);
 
-
         $em->flush();
 
 //        return $this->render('default/index.html.twig');

@@ -3,14 +3,12 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-//permet de faire fonctionner les trads dynamiques
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
-
 
 /**
  * @ORM\Entity()
  */
-class CategoryTranslation
+class ProductTranslation
 {
     use ORMBehaviors\Translatable\Translation;
     use ORMBehaviors\Sluggable\Sluggable;
@@ -34,7 +32,7 @@ class CategoryTranslation
      *
      * @param string $name
      *
-     * @return Category
+     * @return Product
      */
     public function setName($name)
     {
@@ -53,12 +51,13 @@ class CategoryTranslation
         return $this->name;
     }
 
+
     /**
      * Set description
      *
      * @param string $description
      *
-     * @return Category
+     * @return Product
      */
     public function setDescription($description)
     {
@@ -82,6 +81,5 @@ class CategoryTranslation
         //on ne veut sluggifier que le nom category
         return [ 'name', 'description' ];
     }
-
 }
 

@@ -3,7 +3,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-#permet de faire fonctionner les trads dynamiques
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -17,6 +16,17 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Category
 {
     use ORMBehaviors\Translatable\Translatable;
+
+    public function __construct() {
+        $this->features = new ArrayCollection();
+    }
+
+
+    /**
+     * One Category has Many Products.
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
+     */
+    private $products;
 
     /**
      * @var int

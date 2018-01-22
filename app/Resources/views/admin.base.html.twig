@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    <title>Administration | {{ title | capitalize }}</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"  />
+    <link rel="stylesheet" href="{{ asset('style') }}"  />
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="narrow-jumbotron.css" rel="stylesheet"> -->
+</head>
+
+<body>
+
+<div class="container">
+    <header class="header clearfix">
+        {% block header_top %}{% endblock %}
+        {% block header_middle %}{% endblock %}
+        {% block header_bottom %}{% endblock %}
+    </header>
+
+    <main>
+        {% block content_right %}{% endblock %}
+        {% block content_center %}{% endblock %}
+        {% block content_left %}{% endblock %}
+    </main>
+
+    <footer>
+        {# footer #}
+        {% include 'inc/footer_top.html.twig' %}
+        {% include 'inc/footer_middle.html.twig' %}
+        {% include 'inc/footer_bottom.html.twig' %}
+        {# endfooter #}
+    </footer>
+
+    <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
+</div> <!-- /container -->
+</body>
+</html>
