@@ -21,7 +21,6 @@ class Category
         $this->features = new ArrayCollection();
     }
 
-
     /**
      * One Category has Many Products.
      * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
