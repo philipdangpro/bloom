@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class DefaultController extends ImprovedController
 {
@@ -14,10 +15,16 @@ class DefaultController extends ImprovedController
     /**
      * @Route("/", name="default.index")
      */
-    public function indexAction(Request $request)
+    public function indexAction(ManagerRegistry $managerRegistry, Request $request, RequestStack $requestStack)
     {
+        $categories = $managerRegistry
+            ->getRepository(Category::class)
+            ->findAll();
+
         return $this->render('default/index.html.twig',
             [
+                'requestStack' => $requestStack,
+                'categories' => $categories,
                 'title' => 'home',
                 'style' => $this->getCustomCss('front')
             ]);
