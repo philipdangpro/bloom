@@ -17,14 +17,22 @@ class DefaultController extends ImprovedController
      */
     public function indexAction(ManagerRegistry $managerRegistry, Request $request, RequestStack $requestStack)
     {
-        $categories = $managerRegistry
+//        $faker = \Faker\Factory::create('fr_FR');
+//        dump($faker);
+//        die;
+
+        $categoriesLeft = $managerRegistry
             ->getRepository(Category::class)
             ->findAll();
+
+
+        $categoriesRight = array_splice($categoriesLeft, floor(count($categoriesLeft)/2)+1);
 
         return $this->render('default/index.html.twig',
             [
                 'requestStack' => $requestStack,
-                'categories' => $categories,
+                'categoriesLeft' => $categoriesLeft,
+                'categoriesRight' => $categoriesRight,
                 'title' => 'home',
                 'style' => $this->getCustomCss('front')
             ]);
@@ -41,6 +49,19 @@ class DefaultController extends ImprovedController
                 'asset' => $this->getCustomCss('front')
             ]);
     }
+
+    /**
+     * @Route("/login", name="default.subscribe")
+     */
+    public function subscribeAction(Request $request)
+    {
+        return $this->render('default/subscribe.html.twig',
+            [
+                'title' => 'Inscription',
+                'asset' => $this->getCustomCss('front')
+            ]);
+    }
+
 
     /**
      * @Route("/contact", name="default.contact")

@@ -12,13 +12,15 @@ class EmailTemplateFixtures extends Fixture
 
     public function load(ObjectManager $objectManager)
     {
+        $faker = \Faker\Factory::create(self::LOCALES['fr']);
 
         for($i = 0; $i < 5; $i++){
             $entity = new EmailTemplate();
             $entity->setType("type" . $i);
-            $entity->setContent("content". $i);
+            $entity->setContent($faker->realText($maxNbChars = $faker->numberBetween(50, 200), $indexSize = 2));
             $objectManager->persist($entity);
         }
+//        $faker = null; unset($faker);
 
 
         $objectManager->flush();

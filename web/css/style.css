@@ -1,0 +1,10 @@
+a:hover,
+.a:hover {
+    text-decoration:none;
+}
+
+
+a.text-white:hover,
+.a.text-white:hover {
+    color: #FFFFFF!important;
+}

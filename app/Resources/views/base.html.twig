@@ -12,7 +12,8 @@
     <!-- Bootstrap core CSS -->
 
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"  />
-    <link rel="stylesheet" href="{{ asset('style') }}"  />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}"  />
+    <script defer src="{{ asset('js/fontawesome-all.min.js') }}"></script>
 
     <!-- Custom styles for this template -->
     <!-- <link href="narrow-jumbotron.css" rel="stylesheet"> -->
@@ -22,6 +23,7 @@
 
 <div class="container">
     <header class="header clearfix">
+        {% include 'inc/header_top.html.twig' %}
         {% block header_top %}{% endblock %}
         {% block header_middle %}{% endblock %}
         {% block header_bottom %}{% endblock %}
@@ -43,6 +45,7 @@
 
     <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
+
 </div> <!-- /container -->
 </body>
 </html>

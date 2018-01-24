@@ -1,0 +1,16 @@
+<nav>
+
+
+    <a href="{{ url('default.index') }}" class="float-left"><i class="fab fa-facebook-square fa-9x"></i></a>
+    <span><h3>Bienvenue !</h3></span>
+
+    <ul class="nav nav-pills float-right">
+        <li class="nav-item">
+            <a class="nav-link active" href="{{ url('default.login') }}">Connexion<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{{ url('default.subscribe') }}">Inscription<span class="sr-only">(current)</span></a>
+        </li>
+    </ul>
+</nav>
+<h3 class="text-muted">{{ 'homepage.title' | trans | capitalize}}</h3>

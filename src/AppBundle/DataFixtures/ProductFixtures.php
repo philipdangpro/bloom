@@ -14,11 +14,11 @@ class ProductFixtures extends Fixture
 
     public function load(ObjectManager $objectManager)
     {
-        $faker = \Faker\Factory::create();
 
 //        dump();
 
-        for($i = 0; $i < 5; $i++){
+        for($i = 0; $i < 20; $i++){
+            $faker = \Faker\Factory::create();
             $entity = new Product();
 
             $entity->setSku($faker->unique()->numberBetween(0,5000));
@@ -31,9 +31,11 @@ class ProductFixtures extends Fixture
             );
 
             foreach (self::LOCALES as $k => $v){
+                $faker = \Faker\Factory::create($v);
                 $name = ($k == 'en') ? 'product_en' : 'produit_fr';
                 $entity->translate($k)->setName($name . $i);
                 $entity->translate($k)->setDescription(implode("", $faker->words(2)));
+//                $faker = null; unset($faker);
             }
             $entity->mergeNewTranslations();
 //            $this->addReference("cat" . $i, $entity);

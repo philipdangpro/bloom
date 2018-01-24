@@ -12,12 +12,14 @@ class SecretQuestionFixtures extends Fixture
 
     public function load(ObjectManager $objectManager)
     {
+
         for($i = 0; $i < 5; $i++){
             $entity = new SecretQuestion();
             foreach (self::LOCALES as $k => $v){
+                $faker = \Faker\Factory::create($v);
                 $content = ($k == 'en') ? 'english' : 'français';
                 $entity->setType("first");
-                $entity->translate($k)->setContent($content . $i . "_ _" . $k);
+                $entity->translate($k)->setContent($faker->realText(50) . '?');
             }
             $entity->mergeNewTranslations();
             $objectManager->persist($entity);
